@@ -1,0 +1,6 @@
+{
+  "name": "Abby Cakes & Hampers",
+  "description": "Bespoke luxury cakes, artisanal dessert hampers, milestone birthday confections, and gourmet dessert tables by abbycakesandhampers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
