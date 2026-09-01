@@ -4,6 +4,9 @@ import App from './App.tsx';
 import { ThemeProvider } from './context/ThemeContext';
 import './index.css';
 
+// Initialize Firebase (app + analytics)
+import './firebase';
+
 interface ErrorBoundaryProps {
   children: ReactNode;
 }
@@ -13,9 +16,13 @@ interface ErrorBoundaryState {
   error?: Error;
 }
 
-class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  props: ErrorBoundaryProps;
+  state: ErrorBoundaryState;
+
   constructor(props: ErrorBoundaryProps) {
     super(props);
+    this.props = props;
     this.state = { hasError: false };
   }
 

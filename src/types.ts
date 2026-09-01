@@ -52,7 +52,33 @@ export interface OrderFormData {
   phone: string;
   selectedCake: string;
   dateNeeded: string;
-  deliveryType: 'pickup' | 'delivery';
+  deliveryType: 'delivery';
   location: string;
   message: string;
 }
+
+export type CollectionCategory =
+  | 'all'
+  | 'cakes'
+  | 'pastries'
+  | 'chops'
+  | 'sweet'
+  | 'hampers'
+  | 'drinks';
+
+export interface ProductCollection {
+  id: string;
+  name: string;
+  category: CollectionCategory;
+  categoryLabel: string;
+  subtitle: string;
+  description: string;
+  items: string[];
+  priceRange: string;
+  firebasePaths?: string[];
+  coverImage: string;
+  images: string[];
+  highlight?: string;
+  featured?: boolean;
+}
+

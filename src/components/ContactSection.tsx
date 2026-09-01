@@ -36,7 +36,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   const [budget, setBudget] = useState('');
   const [dateNeeded, setDateNeeded] = useState('');
   const [message, setMessage] = useState('');
-  const [deliveryType, setDeliveryType] = useState<'pickup' | 'delivery'>('delivery');
+  const [deliveryType] = useState<'delivery'>('delivery');
   const [submitted, setSubmitted] = useState(false);
   const [referenceId, setReferenceId] = useState('');
 
@@ -244,18 +244,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   </div>
                 </a>
 
-                {/* Location & Delivery */}
+                {/* Delivery Information */}
                 <div className="flex items-start gap-4 p-4 rounded-2xl bg-[#faf7f2] dark:bg-[#1a1917] border border-[#c9a86a]/25">
                   <div className="w-12 h-12 rounded-xl bg-[#c9a86a]/15 text-[#8a6520] dark:text-[#c9a86a] flex items-center justify-center shrink-0">
-                    <MapPin className="w-6 h-6" />
+                    <Truck className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-[#8a6520] dark:text-[#c9a86a]">Studio & Delivery Area</div>
-                    <div className="text-sm font-semibold text-[#1f1b16] dark:text-[#f5f2ed] mt-0.5">{CONTACT_INFO.location}</div>
-                    <div className="text-xs text-[#6b6155] dark:text-white/50 mt-1 flex items-center gap-1.5">
-                      <Truck className="w-3.5 h-3.5 text-[#8a6520] dark:text-[#c9a86a]" />
-                      <span>{CONTACT_INFO.deliveryCoverage}</span>
-                    </div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-[#8a6520] dark:text-[#c9a86a]">Delivery Information</div>
+                    <div className="text-sm font-semibold text-[#1f1b16] dark:text-[#f5f2ed] mt-0.5">{CONTACT_INFO.deliveryCoverage}</div>
+                    <div className="text-xs text-[#6b6155] dark:text-white/50 mt-1">We offer door-to-door delivery only across Lagos.</div>
                   </div>
                 </div>
               </div>
@@ -629,36 +626,14 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       </div>
                     </div>
 
-                    {/* Delivery or Pickup */}
+                    {/* Delivery Only Notice */}
                     <div>
                       <label className="block text-[11px] font-bold uppercase tracking-wider text-[#8a6520] dark:text-[#c9a86a] mb-1.5">
-                        Fulfillment Preference
+                        Fulfillment Method
                       </label>
-                      <div className="grid grid-cols-2 gap-3">
-                        <button
-                          type="button"
-                          onClick={() => setDeliveryType('delivery')}
-                          className={`py-2.5 px-4 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer transition-all ${
-                            deliveryType === 'delivery'
-                              ? 'bg-[#c9a86a] text-[#050505] border-[#c9a86a] font-bold shadow-xs'
-                              : 'bg-[#faf7f2] dark:bg-[#1a1917] text-[#6b6155] dark:text-white/70 border-[#c9a86a]/25'
-                          }`}
-                        >
-                          <Truck className="w-4 h-4" />
-                          <span>Delivery in Lagos</span>
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => setDeliveryType('pickup')}
-                          className={`py-2.5 px-4 rounded-xl border text-xs font-semibold flex items-center justify-center gap-2 cursor-pointer transition-all ${
-                            deliveryType === 'pickup'
-                              ? 'bg-[#c9a86a] text-[#050505] border-[#c9a86a] font-bold shadow-xs'
-                              : 'bg-[#faf7f2] dark:bg-[#1a1917] text-[#6b6155] dark:text-white/70 border-[#c9a86a]/25'
-                          }`}
-                        >
-                          <MapPin className="w-4 h-4" />
-                          <span>Studio Pickup (Lekki)</span>
-                        </button>
+                      <div className="py-2.5 px-4 rounded-xl bg-[#faf7f2] dark:bg-[#1a1917] border border-[#c9a86a]/30 text-xs font-semibold text-[#1f1b16] dark:text-[#f5f2ed] flex items-center gap-2">
+                        <Truck className="w-4 h-4 text-[#8a6520] dark:text-[#c9a86a]" />
+                        <span>🚚 Delivery available across Lagos</span>
                       </div>
                     </div>
 

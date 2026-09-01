@@ -136,24 +136,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenContact }) => {
             <div><a href="#contact" className="text-[#6b6155] dark:text-white/70 hover:text-[#8a6520] dark:hover:text-[#c9a86a] transition-colors font-light">How to Order</a></div>
           </div>
 
-          {/* Contact & Studio Details */}
+          {/* Delivery & Contact Details */}
           <div className="lg:col-span-3 space-y-3 text-xs sm:text-sm">
             <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#8a6520] dark:text-[#c9a86a] block mb-3">
-              Studio & Contact
+              Delivery & Contact
             </span>
-            <div className="flex items-start gap-2.5 text-[#6b6155] dark:text-white/70 font-light">
-              <MapPin className="w-4 h-4 text-[#8a6520] dark:text-[#c9a86a] shrink-0 mt-0.5" />
-              <span>{CONTACT_INFO.location}</span>
+            <div className="flex items-center gap-2.5 text-[#6b6155] dark:text-white/70 font-light">
+              <Truck className="w-4 h-4 text-[#8a6520] dark:text-[#c9a86a] shrink-0" />
+              <span>{CONTACT_INFO.deliveryCoverage}</span>
             </div>
             <div className="flex items-center gap-2.5 text-[#6b6155] dark:text-white/70 font-light">
               <Phone className="w-4 h-4 text-[#8a6520] dark:text-[#c9a86a] shrink-0" />
               <a href={CONTACT_INFO.phoneUrl} className="hover:text-[#8a6520] dark:hover:text-[#c9a86a] transition-colors">
                 Phone: <strong className="text-[#1f1b16] dark:text-white font-medium">{CONTACT_INFO.phoneFormatted}</strong>
               </a>
-            </div>
-            <div className="flex items-center gap-2.5 text-[#6b6155] dark:text-white/70 font-light">
-              <Truck className="w-4 h-4 text-[#8a6520] dark:text-[#c9a86a] shrink-0" />
-              <span>{CONTACT_INFO.deliveryCoverage}</span>
             </div>
             <div className="flex items-center gap-2.5 text-[#6b6155] dark:text-white/70 font-light">
               <Mail className="w-4 h-4 text-[#8a6520] dark:text-[#c9a86a] shrink-0" />

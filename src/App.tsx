@@ -8,16 +8,18 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { FeaturedCreations } from './components/FeaturedCreations';
 import { Gallery } from './components/Gallery';
+import { CollectionModal } from './components/CollectionModal';
 import { GalleryLightbox } from './components/GalleryLightbox';
 import { WhyUs } from './components/WhyUs';
 import { Testimonials } from './components/Testimonials';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
-import { GalleryItem } from './types';
+import { GalleryItem, ProductCollection } from './types';
 import { getWhatsAppOrderUrl } from './data/cateringData';
 
 export default function App() {
   const [selectedGalleryItem, setSelectedGalleryItem] = useState<GalleryItem | null>(null);
+  const [selectedCollection, setSelectedCollection] = useState<ProductCollection | null>(null);
   const [selectedCakeForOrder, setSelectedCakeForOrder] = useState<string>('');
 
   const handleOrderNow = (cakeTitle?: string, cakePrice?: string) => {
@@ -60,7 +62,7 @@ export default function App() {
         />
 
         <Gallery
-          onSelectItem={setSelectedGalleryItem}
+          onSelectCollection={setSelectedCollection}
           onOrderNow={handleOrderNow}
         />
 
@@ -78,7 +80,14 @@ export default function App() {
       {/* Footer with FAQs and Direct Channels */}
       <Footer onOpenContact={handleOpenContact} />
 
-      {/* High-Resolution Photo Lightbox */}
+      {/* Interactive Collection Slideshow Modal */}
+      <CollectionModal
+        collection={selectedCollection}
+        onClose={() => setSelectedCollection(null)}
+        onOrderNow={handleOrderNow}
+      />
+
+      {/* High-Resolution Photo Lightbox for Featured Creations */}
       <GalleryLightbox
         item={selectedGalleryItem}
         onClose={() => setSelectedGalleryItem(null)}
